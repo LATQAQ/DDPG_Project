@@ -132,7 +132,7 @@ class DDPG:
         expected_value = torch.clamp(expected_value, -np.inf, np.inf)
 
         actual_value = self.critic(state, action)
-        critic_loss = nn.MSELoss()(actual_value, expected_value.detach())
+        critic_loss = nn.MSELoss(actual_value, expected_value.detach())
 
         self.actor_optimizer.zero_grad()
         actor_loss.backward()
