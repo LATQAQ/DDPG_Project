@@ -250,7 +250,7 @@ def all_seed(env,seed = 1):
     torch.backends.cudnn.benchmark = False
     torch.backends.cudnn.enabled = False
 def env_agent_config(cfg):
-    env = NormalizedActions(gym.make(cfg['env_name'],render_mode='human')) # 装饰action噪声
+    env = NormalizedActions(gym.make(cfg['env_name'])) # 装饰action噪声
     if cfg['seed'] !=0:
         all_seed(env,seed=cfg['seed'])
     n_states = env.observation_space.shape[0]
